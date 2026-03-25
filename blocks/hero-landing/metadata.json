@@ -1,0 +1,31 @@
+{
+  "variantName": "hero-landing",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-03-24T13:55:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd-trendsetters.site/",
+    "originPage": "homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "landing-hero",
+    "imagePattern": "multi-image"
+  },
+  "contentPattern": {
+    "structure": "heading + paragraph + 2 CTAs + 3 images",
+    "buttonCount": 2,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": ["landing pages with multi-image heroes", "homepage hero sections", "campaign landing pages"],
+    "notSuitableFor": ["simple text-only heroes", "background-image heroes with overlay"]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-24T13:55:00.000Z"
+  }
+}

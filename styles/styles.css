@@ -12,61 +12,119 @@
 
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-yellow: #f4fe8b;
+  --color-lavender: #cbd4ff;
+  --color-purple: #f4e5fc;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e8e8e8;
+  --color-gray-300: #d4d4d4;
+  --color-gray-500: #666;
+  --color-gray-700: #404040;
+  --color-gray-900: #171717;
+
+  /* semantic colors */
+  --background-color: var(--color-white);
+  --light-color: var(--color-gray-100);
+  --dark-color: var(--color-gray-700);
+  --text-color: var(--color-black);
+  --link-color: var(--color-black);
+  --link-hover-color: var(--color-gray-700);
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --heading-font-family: syncopate, syncopate-fallback, sans-serif;
+  --body-font-family: 'Instrument Sans', instrument-sans-fallback, sans-serif;
+
+  /* typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-5xl: 3.5rem;
+
+  /* line heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.3;
+  --leading-normal: 1.6;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes (mobile-first) */
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 32px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 14px;
 
-  /* nav height */
+  /* spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+  --space-5xl: 8rem;
+
+  /* layout */
+  --container-max: 1200px;
+  --container-padding: 1.5rem;
   --nav-height: 64px;
+
+  /* border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-card: 1.25rem;
+  --radius-full: 9999px;
+
+  /* shadows */
+  --shadow-button: 4px 4px 0 0 var(--color-black);
+  --shadow-card: 0 2px 8px rgb(0 0 0 / 8%);
+
+  /* transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+
+  /* focus */
+  --focus-ring-color: var(--color-black);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
 }
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: syncopate-fallback;
+  size-adjust: 95%;
+  src: local('Arial Narrow'), local('Helvetica Condensed'), local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
+  font-family: instrument-sans-fallback;
+  size-adjust: 100%;
   src: local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
+    /* heading sizes (desktop) */
+    --heading-font-size-xxl: 56px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 24px;
     --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xs: 14px;
   }
 }
 
@@ -77,7 +135,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: var(--leading-normal);
 }
 
 body.appear {
@@ -104,20 +162,29 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 0;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  letter-spacing: -0.02em;
+}
+
 h2 { font-size: var(--heading-font-size-xl); }
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+  letter-spacing: 0.05em;
+}
 
 p,
 dl,
@@ -125,8 +192,8 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
 }
 
 code,
@@ -136,7 +203,7 @@ pre {
 
 pre {
   padding: 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
@@ -162,7 +229,6 @@ a:any-link {
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
 }
 
 /* buttons */
@@ -178,104 +244,88 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+a.button:hover,
+button.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-black);
+}
+
+a.button:focus-visible,
+button.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
 }
 
 a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  opacity: 0.5;
 }
 
+/* primary button (default) */
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+  border-color: var(--color-black);
+  background-color: var(--color-black);
+  color: var(--color-white);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-black);
 }
 
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
+/* secondary button (outline) */
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
+  border-color: var(--color-black);
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-black);
 }
 
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
+/* accent button */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  border-color: var(--color-yellow);
+  background-color: var(--color-yellow);
+  color: var(--color-black);
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--color-black);
 }
 
 main img {
@@ -297,13 +347,14 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  padding: 80px 0;
+  margin: 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: auto;
-  padding: 0 24px;
+  padding: 0 var(--container-padding);
 }
 
 main > .section:first-of-type {
@@ -311,15 +362,49 @@ main > .section:first-of-type {
 }
 
 @media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+  main > .section {
+    padding: 128px 0;
   }
 }
 
-/* section metadata */
+/* section metadata: light-grey */
+main .section.light-grey {
+  background-color: var(--color-gray-100);
+}
+
+/* section metadata: dark */
+main .section.dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+main .section.dark h1,
+main .section.dark h2,
+main .section.dark h3,
+main .section.dark h4,
+main .section.dark h5,
+main .section.dark h6 {
+  color: var(--color-white);
+}
+
+main .section.dark a:any-link {
+  color: var(--color-white);
+}
+
+main .section.dark a.button:any-link,
+main .section.dark button.button {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+main .section.dark a.button:hover,
+main .section.dark button.button:hover {
+  box-shadow: 6px 6px 0 0 rgb(255 255 255 / 30%);
+}
+
+/* legacy boilerplate section styles */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+  background-color: var(--color-gray-100);
 }
